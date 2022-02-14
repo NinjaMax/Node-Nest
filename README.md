@@ -1,8 +1,11 @@
 INSTRACTION
+
 Запуск
+
 $ npm run start 
 
 -файле .env конфигурация для бд. Добавить свою.
+
 	PORT
 	POSTGRES_HOST
 	POSTGRESS_PORT
