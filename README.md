@@ -13,6 +13,7 @@ $ npm run start
 	POSTGRESS_PASSWORD
 	POSTGRES_DB
 USERS:
+
 -Создать пользователя:
 
 	роут вашHOST:вашPORT/users/
@@ -27,7 +28,7 @@ USERS:
 	}
 
 - Получить всех пользователей:
-- 
+ 
 	роут вашHOST:вашPORT/users/ 
 	
 	метод GET:
