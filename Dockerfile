@@ -2,12 +2,12 @@ FROM node:12.13-alpine
 
 WORKDIR /app
 
-COPY ./node-nest/package*.json ./
+COPY package*.json ./
 
 RUN npm install 
 
 COPY . .
 
-COPY ./node-nest/dist ./dist
+COPY ./dist ./dist
 
 CMD ["npm", "run", "start"]

@@ -10,6 +10,7 @@ export class ServicesService {
     constructor(@InjectModel(Service) private serviceRepository: typeof Service) {}
 
     async createService(dto: CreateServiceDto) {
+        
         try {
               const service = await this.serviceRepository.create(dto);  
               return service;
@@ -23,6 +24,7 @@ export class ServicesService {
     }
 
     async getServiceByTitle(title: string) {
+        
         try {
               const services = await this.serviceRepository.findOne({where: {title}})
               return services;
@@ -36,9 +38,11 @@ export class ServicesService {
     }
 
     async getAllService() {
+        
         try {
               const services = await this.serviceRepository.findAll({include: {all: true}});
               return services;
+
         } catch {
 
               throw new HttpException('Data is incorrect or Not Found', HttpStatus.NOT_FOUND);
@@ -48,6 +52,7 @@ export class ServicesService {
     }
 
     async getAllTerms(dto: GetTermDto) {
+        
         try {
               const services = await this.serviceRepository.findAll({include: {all: true}});
         

@@ -11,7 +11,8 @@ export class UsersService {
                 private servicesService: ServicesService) {}
 
     async createUser(dto: CreateUserDto) {
-        try { 
+        
+       try { 
               const user = await this.userRepository.create(dto);
       
               return user;
@@ -25,7 +26,8 @@ export class UsersService {
     }
 
     async subscribeUserService(dto: GetUserDto) {
-        try {
+        
+       try {
               const user = await this.userRepository.findByPk(dto.id, {include: {all: true}});
               const services = await this.servicesService.getServiceByTitle(dto.title);
               await user.$add('service', [services.id]);
@@ -36,16 +38,17 @@ export class UsersService {
 
               throw new HttpException('Data is incorrect or Not Found', HttpStatus.NOT_FOUND); 
 
-        }
+         }
         
     }
 
     async getAllUsers() {
-        try { 
+        
+      try { 
               const users = await this.userRepository.findAll({include: {all: true}});
               return users;
 
-        } catch {
+      } catch {
 
               throw new HttpException('Data is incorrect or Not Found', HttpStatus.NOT_FOUND);
 
@@ -54,11 +57,12 @@ export class UsersService {
     }
 
     async getUserByEmail(dto: GetUserDto) {
-        try {
+        
+      try {
               const user = await this.userRepository.findOne({where: {email: dto.email}, include: {all: true}});
               return user;
 
-        } catch {
+      } catch {
 
               throw new HttpException('Data is incorrect or Not Found', HttpStatus.NOT_FOUND);
 
@@ -67,11 +71,12 @@ export class UsersService {
     }
 
     async getAllUsersServices(dto: GetUserDto) {
-        try {
+        
+      try {
               const user = await this.userRepository.findByPk(dto.id, {include: {all: true}});
               return user.service;
 
-        } catch {
+      } catch {
 
               throw new HttpException('Data is incorrect or Not Found', HttpStatus.NOT_FOUND);
         
