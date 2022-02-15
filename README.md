@@ -4,13 +4,20 @@ INSTRACTION
 
 $ npm run start 
 
-- файле .env конфигурация для бд. Добавить свою.
+- файле .env конфигурация для бд. Добавить свою (свои данные).
+
+/ для запуска в Docker, POSTGRES_HOST=postgres, POSTGRESS_PASSWORD=postgres /
 
 	PORT
+	
 	POSTGRES_HOST
+	
 	POSTGRESS_PORT
+	
 	POSTGRES_USER
+	
 	POSTGRESS_PASSWORD
+	
 	POSTGRES_DB
 USERS:
 
@@ -88,6 +95,7 @@ SERVICE:
 - Получение списка популярных сервисов: 
 
 	роут вашHOST:вашPORT/services/term 
+	
 	метод GET, данные term - строка, является подстрокой title сервиса:
 	
 	{
